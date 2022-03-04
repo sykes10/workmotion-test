@@ -23,8 +23,8 @@ export function EmployeeTable() {
 
   return (
     <React.Fragment>
-      <table className='table-auto w-full'>
-        <thead className='border-b'>
+      <table className='table-auto w-full border'>
+        <thead className='bg-[#EFF0F5] h-10'>
           <tr>
             <th>Name</th>
             <th>Email</th>

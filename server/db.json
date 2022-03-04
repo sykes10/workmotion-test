@@ -30,7 +30,7 @@
       "last_name": "Rob",
       "email": "bobdoe@abc.com",
       "gender": "Male",
-      "status": "ADDED"
+      "status": "ACTIVE"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "last_name": "Arevalo",
       "email": "test@abc.com",
       "gender": "Male",
-      "status": "ADDED"
+      "status": "ACTIVE"
     }
   ]
 }
