@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import {Employee} from './components/Employee';
-import { EmployeeProps } from "./types/Employee";
 import './App.css';
+import {EmployeeList} from '@/components/EmployeeList';
 
 function App() {
-
-
   return (
     <div className="App">
-      {employees.map(employee => {
-       return <Employee {...employee}/>
-     })} 
+      <EmployeeList />
     </div>
   );
 }

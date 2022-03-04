@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Employee} from '@/components/Employee';
-import './App.css';
 import { EmployeeProps } from '@/types/Employee';
+
 export function EmployeeList() {
     const [employees, setEmployees] = useState<EmployeeProps[]>([]);
 
@@ -14,4 +14,12 @@ export function EmployeeList() {
       }
       fetchData();
     });
+
+    return (
+      <React.Suspense fallback="">
+        {employees.map(employee => {
+          return <Employee {...employee}/>
+        })} 
+      </React.Suspense>
+    )
 }
