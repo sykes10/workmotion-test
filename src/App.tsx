@@ -1,4 +1,4 @@
-import {EmployeeList} from './components/EmployeeList';
+import {EmployeeTable} from './components/EmployeeTable';
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <h1 className="text-3xl font-bold text-center my-8">
         Employees
       </h1>
-      <EmployeeList />
+      <EmployeeTable />
     </div>
   );
 }

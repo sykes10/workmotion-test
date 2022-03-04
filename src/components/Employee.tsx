@@ -17,24 +17,20 @@ export function Employee(props: EmployeeProps) {
                 status: newStatus
             })
         })
-        if(response.ok) {
+        if (response.ok) {
             setStatus(newStatus)
         }
     }
     return (
-        <div className="border shadow w-full flex rounded justify-between items-center p-4 mb-4">
-            <div className="flex flex-col">
-                <p>
-                    {props.first_name} {props.last_name}
-                </p>
-                <p className="font-bold">
-                    {props.email}
-                </p>
-            </div>
-            <StatusBar
-                active={status}
-                onClick={(newStatus) => updateEmployeeStatus(newStatus)}
-            />
-        </div>
+        <tr>
+            <td>{props.first_name} {props.last_name}</td>
+            <td className='font-bold'>{props.email}</td>
+            <td>
+                <StatusBar
+                    active={status}
+                    onClick={(newStatus) => updateEmployeeStatus(newStatus)}
+                />
+            </td>
+        </tr>
     )
 }

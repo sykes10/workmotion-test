@@ -19,16 +19,16 @@ export function StatusBar({active, onClick}: { active: EmployeeStatus, onClick: 
                             onClick={() => onClick(statusItem)}
                             className={
                             `${active === statusItem ?
-                                'bg-slate-700 text-white'
+                                'bg-[#01816D] text-white'
                                 : ''
                             } 
-                            ${index < statusList.length ?
+                            ${index < statusList.length - 1 ?
                                 'border-r' :
                                 ''
                             } 
-                            transition-colors px-4 cursor-pointer text-center h-12 leading-[3rem] w-full`
+                            transition-colors px-4 cursor-pointer text-center h-12 leading-[3rem] w-full capitalize`
                         }>
-                            {statusItem}
+                            {statusItem.toLowerCase()}
                         </li>
                 )
             }

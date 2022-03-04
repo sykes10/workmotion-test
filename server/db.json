@@ -6,7 +6,7 @@
       "last_name": "Doe",
       "email": "johndoe@abc.com",
       "gender": "Male",
-      "status": "APPROVED"
+      "status": "ADDED"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "last_name": "Mac",
       "email": "janedoe@abc.com",
       "gender": "Female",
-      "status": "APPROVED"
+      "status": "IN-CHECK"
     },
     {
       "id": 3,
@@ -38,7 +38,7 @@
       "last_name": "Arevalo",
       "email": "test@abc.com",
       "gender": "Male",
-      "status": "INACTIVE"
+      "status": "ADDED"
     }
   ]
 }
