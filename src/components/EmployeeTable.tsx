@@ -7,24 +7,29 @@ export function EmployeeTable() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    let controller = new AbortController();
     async function fetchData() {
       try {
-
-        const response = await fetch(' http://localhost:5555/employees')
+        const response = await fetch(' http://localhost:5555/employees', {
+          signal: controller.signal
+        });
         if (response.ok) {
           setEmployees(await response.json());
         }
-      } catch (e) {
-        setError((e as Error).message || 'Unexpected error')
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message || 'Unexpected error');
+        }
       }
     }
     fetchData();
+    return () => controller.abort();
   }, []);
 
   return (
-    <React.Fragment>
-      <table className='table-auto w-full border'>
-        <thead className='bg-[#EFF0F5] h-10'>
+    <>
+      <table className="table-auto w-full border">
+        <thead className="bg-[#EFF0F5] h-10">
           <tr>
             <th>Name</th>
             <th>Email</th>
@@ -32,14 +37,12 @@ export function EmployeeTable() {
           </tr>
         </thead>
         <tbody>
-          {
-            employees.map(employee => {
-              return <Employee {...employee} key={employee.id} />
-            })
-          }
+          {employees.map((employee) => {
+            return <Employee {...employee} key={employee.id} />;
+          })}
         </tbody>
       </table>
       {error ? <p className="text-red font-semibold">{error}</p> : null}
-    </React.Fragment>
-  )
+    </>
+  );
 }
