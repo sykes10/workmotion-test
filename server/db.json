@@ -19,21 +19,21 @@
       "firstName": "Alice",
       "lastName": "Wonderland",
       "email": "alicedoe@abc.com",
-      "status": "IN-CHECK"
+      "status": "APPROVED"
     },
     {
       "id": 4,
       "firstName": "Bob",
       "lastName": "Rob",
       "email": "bobdoe@abc.com",
-      "status": "IN-CHECK"
+      "status": "ACTIVE"
     },
     {
       "id": 5,
       "firstName": "Alexs",
       "lastName": "Arevalo",
       "email": "test@abc.com",
-      "status": "INACTIVE"
+      "status": "APPROVED"
     }
   ]
 }

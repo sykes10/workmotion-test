@@ -7,7 +7,7 @@ import EmployeeComponent from './Employee';
 
 const url = `http://localhost:5555/employees`;
 
-export default function EmployeeTable() {
+const EmployeeTable: React.FC = () => {
   const { data: employees, error } = useFetch<Employee[]>(url);
 
   if (error) return <p className="text-red font-semibold">{error}</p>;
@@ -30,4 +30,6 @@ export default function EmployeeTable() {
       </div>
     </EmployeesTableContext.Provider>
   );
-}
+};
+
+export default EmployeeTable;
