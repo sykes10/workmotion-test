@@ -1,41 +1,20 @@
-import { useState } from 'react';
-import { EmployeeProps, EmployeeStatus } from '../types/Employee';
-import { StatusBar } from './StatusBar';
+import React from 'react';
+import StatusBar from './StatusBar';
+import { Employee } from '../types/employee';
 
-export function Employee(props: EmployeeProps) {
-  const [status, setStatus] = useState<EmployeeStatus>(props.status);
-
-  async function updateEmployeeStatus(newStatus: EmployeeStatus) {
-    let controller = new AbortController();
-
-    if (newStatus === status) return;
-    const response = await fetch(`http://localhost:5555/employees/${props.id}`, {
-      signal: controller.signal,
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        status: newStatus
-      })
-    });
-    if (response.ok) {
-      setStatus(newStatus);
-    }
-  }
+const EmployeeComponent: React.FC<Employee> = ({ status, id, firstName, lastName, email }) => {
   return (
-    <tr className="border-b">
-      <td className="pl-4 py-4 ">
-        <span className="w-8 h-8 items-center text-sm justify-center  bg-[#E5F2F0] text-[#01816D] rounded-full font-bold inline-flex mr-2">
-          {props.first_name.slice(0, 1)}
-          {props.last_name.slice(0, 1)}
+    <div className="border-b grid md:grid-cols-[25%_25%_50%] grid-cols-2 py-4 md:p-4 gap-4 md:gap-0">
+      <div className="self-center px-4 md:px-0">
+        <span className="w-8 h-8 items-center text-sm justify-center bg-emerald-100 text-teal-700 rounded-full font-bold inline-flex mr-2">
+          {firstName.slice(0, 1)}
+          {lastName.slice(0, 1)}
         </span>
-        {props.first_name} {props.last_name}
-      </td>
-      <td className="font-bold py-4">{props.email}</td>
-      <td className="pr-4 py-4">
-        <StatusBar active={status} onClick={(newStatus) => updateEmployeeStatus(newStatus)} />
-      </td>
-    </tr>
+        {firstName} {lastName}
+      </div>
+      <div className="font-bold self-center px-4 md:px-0">{email}</div>
+      <StatusBar initialStatus={status} id={id} />
+    </div>
   );
-}
+};
+export default EmployeeComponent;

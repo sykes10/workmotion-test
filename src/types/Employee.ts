@@ -5,11 +5,11 @@ export enum EmployeeStatus {
   'Active' = 'ACTIVE',
   'Inactive' = 'INACTIVE'
 }
-export interface EmployeeProps {
+
+export interface Employee {
   id: number;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  gender: string;
   status: EmployeeStatus;
 }
