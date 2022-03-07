@@ -10,7 +10,7 @@ const url = `http://localhost:5555/employees`;
 const EmployeeTable: React.FC = () => {
   const { data: employees, error } = useFetch<Employee[]>(url);
 
-  if (error) return <p className="text-red font-semibold">{error}</p>;
+  if (error) return <p className="text-red font-semibold">{error.message}</p>;
   if (!employees) return <p>Loading...</p>;
   if (!employees.length) return <p>No Employees yet</p>;
   return (

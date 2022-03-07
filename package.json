@@ -16,7 +16,8 @@
     "usehooks-ts": "^2.4.2"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \" react-scripts start\"",
+    "start": "react-scripts start",
+    "start:full": "concurrently \"npm run server\" \" react-scripts start\"",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "server": "json-server --watch --port 5555 server/db.json",

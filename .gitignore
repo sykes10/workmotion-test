@@ -24,3 +24,5 @@ yarn-error.log*
 
 .yarn
 .pnp.*
+# Local Netlify folder
+.netlify
